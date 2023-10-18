@@ -4,10 +4,11 @@ from sqlalchemy.orm import sessionmaker
 import time 
 from psycopg2.extras import RealDictCursor
 import psycopg2
+from .config import settings
 
-SQLALCHEMY_DATABASE_USER = 'postgresql://postgres:19092003@localhost/FastAPI'    
+SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}' 
 
-engine = create_engine(SQLALCHEMY_DATABASE_USER)
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 Sessionlocal = sessionmaker(autocommit= False,autoflush=False,bind= engine)
 
