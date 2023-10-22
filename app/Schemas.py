@@ -1,7 +1,7 @@
 from pydantic import *
 from typing import Optional
 from datetime import datetime
-
+from pydantic import conint
 
 #User
 class UserBase(BaseModel):
@@ -49,3 +49,9 @@ class Post(PostBase):
     
     class Config:
         from_attributes = True
+
+
+#Vote
+class Vote(BaseModel):
+    post_id: Optional[int] = None
+    dir : conint(le=1)
