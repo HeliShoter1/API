@@ -3,7 +3,7 @@ from typing import  List
 from . import  models, user, post, auth, vote
 from .database import *
 
-models.Base.metadata.create_all(bind=engine)
+# models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
